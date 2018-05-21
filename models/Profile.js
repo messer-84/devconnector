@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//Create Schema
-
+// Create Schema
 const ProfileSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
@@ -54,7 +53,7 @@ const ProfileSchema = new Schema({
         required: true
       },
       to: {
-        type: Date,
+        type: Date
       },
       current: {
         type: Boolean,
@@ -76,14 +75,15 @@ const ProfileSchema = new Schema({
         required: true
       },
       fieldofstudy: {
-        type: String
+        type: String,
+        required: true
       },
       from: {
         type: Date,
         required: true
       },
       to: {
-        type: Date,
+        type: Date
       },
       current: {
         type: Boolean,
@@ -111,12 +111,12 @@ const ProfileSchema = new Schema({
       type: String
     }
   },
-  date:{
+  date: {
     type: Date,
     default: Date.now
   }
 });
 
-var Profile = mongoose.model('profile', ProfileSchema);
+const Profile = mongoose.model('profile', ProfileSchema);
 
 module.exports = Profile;
