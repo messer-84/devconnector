@@ -1,4 +1,8 @@
 import React, {Component} from 'react';
+import propTypes from 'prop-types';
+import { connect } from 'react-redux';
+import classnames from 'classnames';
+import { loginUser } from '../../actions/authActions';
 
 class Login extends Component {
     constructor() {
@@ -32,6 +36,9 @@ class Login extends Component {
     }
 
     render() {
+
+        const {errors} = this.state;
+
         return (
             <div className="login">
                 <div className="container">
@@ -43,7 +50,7 @@ class Login extends Component {
                                 <div className="form-group">
                                     <input
                                         type="email"
-                                        className="form-control form-control-lg"
+                                        className={classnames('form-control form-control-lg', {'is-invalid': errors.name})}
                                         placeholder="Email Address"
                                         name="email"
                                         value={this.state.email}
@@ -71,4 +78,16 @@ class Login extends Component {
     }
 }
 
-export default Login;
+Login.propTypes = {
+    loginUser: propTypes.func.isRequired,
+    auth: propTypes.object.isRequired,
+    errors: propTypes.object.isRequired
+
+};
+
+const mapStateToProps = (state) => ({
+   auth: state.auth,
+   errors: state.errors
+});
+
+export default connect(null, {loginUser})(Login);
