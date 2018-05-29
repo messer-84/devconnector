@@ -13,7 +13,7 @@ module.exports = function validateProfileInput(data) {
   }
 
   if (Validator.isEmpty(data.handle)) {
-    errors.handle = 'Profile handle is required';
+    errors.handle = 'ProfileItem handle is required';
   }
 
   if (Validator.isEmpty(data.status)) {

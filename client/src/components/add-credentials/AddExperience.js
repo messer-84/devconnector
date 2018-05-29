@@ -5,7 +5,7 @@ import propTypes from 'prop-types';
 
 import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
-import { addEducation } from '../../actions/profileActions';
+import {addEducation, addExperience} from '../../actions/profileActions';
 
 class AddExperience extends Component {
   constructor(props) {
@@ -164,6 +164,6 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps, { addExperience: addEducation })(
+export default connect(mapStateToProps, { addExperience: addExperience })(
   withRouter(AddExperience)
 );

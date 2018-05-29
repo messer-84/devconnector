@@ -8,7 +8,7 @@ const validateProfileInput = require('../../validation/profile');
 const validateExperienceInput = require('../../validation/experience');
 const validateEducationInput = require('../../validation/education');
 
-// Load Profile Model
+// Load ProfileItem Model
 const Profile = require('../../models/Profile');
 // Load User Model
 const User = require('../../models/User');
@@ -16,7 +16,7 @@ const User = require('../../models/User');
 // @route   GET api/profile/test
 // @desc    Tests profile route
 // @access  Public
-router.get('/test', (req, res) => res.json({ msg: 'Profile Works' }));
+router.get('/test', (req, res) => res.json({ msg: 'ProfileItem Works' }));
 
 // @route   GET api/profile
 // @desc    Get current users profile
@@ -158,7 +158,7 @@ router.post(
             res.status(400).json(errors);
           }
 
-          // Save Profile
+          // Save ProfileItem
           new Profile(profileFields).save().then(profile => res.json(profile));
         });
       }

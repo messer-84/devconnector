@@ -5,7 +5,7 @@ const passport = require('passport');
 
 // Post model
 const Post = require('../../models/Post');
-// Profile model
+// ProfileItem model
 const Profile = require('../../models/Profile');
 
 // Validation
