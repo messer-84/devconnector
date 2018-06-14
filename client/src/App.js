@@ -73,43 +73,36 @@ class App extends Component {
                                     path="/dashboard"
                                     component={Dashboard}
                                 />
-                            </Switch>
-                            <Switch>
                                 <PrivateRoute
                                     exact
                                     path="/create-profile"
                                     component={CreateProfile}
                                 />
-                            </Switch>
-                            <Switch>
                                 <PrivateRoute
                                     exact
                                     path="/edit-profile"
                                     component={EditProfile}
                                 />
-                            </Switch>
-                            <Switch>
                                 <PrivateRoute
                                     exact
                                     path="/add-experience"
                                     component={AddExperience}
                                 />
-                            </Switch>
-                            <Switch>
                                 <PrivateRoute
                                     exact
                                     path="/add-education"
                                     component={AddEducation}
                                 />
-                            </Switch>
-                          <Switch>
                               <PrivateRoute
                                   exact
                                   path="/feed"
                                   component={Posts}
                               />
                           </Switch>
-                          <Route exact path="/not-found" component={NotFound}/>
+                          <Route
+                            exact path="/not-found"
+                            component={NotFound}
+                          />
 
                         </div>
                         <Footer/>

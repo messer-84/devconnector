@@ -121,23 +121,30 @@ export const deleteEducation = (id) => dispatch => {
 };
 
 // Get all profiles
-export const getProfiles = () => dispatch => {
-  dispatch(setProfileLoading());
-  axios
-    .get('/api/profile/all')
-    .then(res =>
-      dispatch({
-        type: GET_PROFILES,
-        payload: res.data
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_PROFILES,
-        payload: null
-      })
-    );
-};
+// export const getProfiles = () => {
+//
+// };
+// export const getProfiles = () => dispatch => {
+//   dispatch(setProfileLoading());
+//
+//   axios
+//     .get('/api/profile/all')
+//     .then(res => {
+//         dispatch({
+//           type: GET_PROFILES,
+//           payload: res.data
+//         });
+//         console.log("Get profiles");
+//
+//       }
+//     )
+//     .catch(err =>
+//       dispatch({
+//         type: GET_PROFILES,
+//         payload: null
+//       })
+//     );
+// };
 
 
 // Delete account & profile

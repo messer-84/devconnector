@@ -3,16 +3,22 @@ import {connect} from 'react-redux';
 import propTypes from 'prop-types';
 import Spinner from '../common/Spinner';
 import ProfileItem from './ProfileItem';
-import {getProfiles} from '../../actions/profileActions';
+// import {getProfiles} from '../../actions/profileActions';
+import {setProfilesSuccess} from '../../sagas/fetchAllProfiles';
 
 class Profiles extends Component {
 
   componentDidMount(){
-    this.props.getProfiles();
+    console.log('from profiles did mount');
+    this.props.onGetProfiles();
   }
 
   render() {
-    const { profiles, loading } = this.props.profile;
+    console.log('Profiles page');
+    console.log('props', this.props);
+
+
+    const { profiles, loading } = this.props.profiles;
     let profileItems;
 
     if(profiles === null || loading){
@@ -20,7 +26,7 @@ class Profiles extends Component {
     } else{
       if(profiles.length > 0){
         profileItems = profiles.map(profile => (
-            <ProfileItem key={profile.id} profile={profile} />
+            <ProfileItem key={profile._id} profile={profile} />
         ));
       } else {
         profileItems = <h4>No profiles found...</h4>
@@ -46,13 +52,17 @@ class Profiles extends Component {
 }
 
 Profiles.propTypes = {
-  getProfiles: propTypes.func.isRequired,
-  profile: propTypes.object.isRequired
+  onGetProfiles: propTypes.func.isRequired,
+  profiles: propTypes.object.isRequired
 };
 
 
 const mapStateToProps = state => ({
-  profile: state.profile
+  profiles: state.profile
 });
 
-export default connect(mapStateToProps, {getProfiles})(Profiles);
+const mapDispatchToProps = dispatch => ({
+  onGetProfiles: () => dispatch(setProfilesSuccess())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profiles);

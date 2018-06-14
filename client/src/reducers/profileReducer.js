@@ -1,4 +1,10 @@
-import {GET_PROFILE, GET_PROFILES, PROFILE_LOADING, CLEAR_CURRENT_PROFILE} from "../actions/types";
+import {
+  GET_PROFILE,
+  GET_PROFILES,
+  PROFILE_LOADING,
+  CLEAR_CURRENT_PROFILE,
+  GET_PROFILES_SUCCESS, GET_PROFILES_REQUEST
+} from "../actions/types";
 
 const initialState = {
   profile: null,
@@ -13,18 +19,30 @@ export default function (state = initialState, action) {
         ...state,
         loading: true
       };
-    case GET_PROFILE:
+
+    case GET_PROFILES_REQUEST:
       return {
         ...state,
-        profile: action.payload,
-        loading: false
+        loading: true
       };
-    case GET_PROFILES:
+
+    case GET_PROFILES_SUCCESS:
       return {
         ...state,
         profiles: action.payload,
         loading: false
       };
+
+    case GET_PROFILE:
+      console.log('profile reducer');
+
+      return {
+        ...state,
+        profile: action.payload,
+        loading: false
+      };
+    // case GET_PROFILES:
+
     case CLEAR_CURRENT_PROFILE:
       return {
         ...state,
