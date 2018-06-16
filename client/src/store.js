@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import createSagaMiddleware from 'redux-saga'
 
-import myRootSaga from './sagas'
+import myRootSaga from './sagas/rootSaga'
 
 // создаем saga мидлвар
 const sagaMiddleware = createSagaMiddleware();

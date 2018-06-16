@@ -1,6 +1,5 @@
 import {
   GET_PROFILE,
-  GET_PROFILES,
   PROFILE_LOADING,
   CLEAR_CURRENT_PROFILE,
   GET_PROFILES_SUCCESS, GET_PROFILES_REQUEST
@@ -13,6 +12,8 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
+  console.log('in action', action.payload);
+
   switch (action.type) {
     case PROFILE_LOADING:
       return {
@@ -34,8 +35,6 @@ export default function (state = initialState, action) {
       };
 
     case GET_PROFILE:
-      console.log('profile reducer');
-
       return {
         ...state,
         profile: action.payload,

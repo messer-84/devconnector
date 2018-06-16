@@ -8,6 +8,7 @@ import {
   GET_ERRORS,
   SET_CURRENT_USER
 } from "./types";
+import * as types from "./types";
 
 // Get current profile
 export const getCurrentProfile = () => dispatch => {
@@ -121,30 +122,31 @@ export const deleteEducation = (id) => dispatch => {
 };
 
 // Get all profiles
-// export const getProfiles = () => {
-//
-// };
-// export const getProfiles = () => dispatch => {
-//   dispatch(setProfileLoading());
-//
-//   axios
-//     .get('/api/profile/all')
-//     .then(res => {
-//         dispatch({
-//           type: GET_PROFILES,
-//           payload: res.data
-//         });
-//         console.log("Get profiles");
-//
-//       }
-//     )
-//     .catch(err =>
-//       dispatch({
-//         type: GET_PROFILES,
-//         payload: null
-//       })
-//     );
-// };
+export const fetchedProfiles = () => {
+  return {
+    type: types.FETCHED_PROFILES
+  }
+};
+
+export const requestProfiles = () => {
+  return {
+    type: types.GET_PROFILES_REQUEST
+  }
+};
+
+export const requestProfilesSuccess = (data) => {
+  return {
+    type: types.GET_PROFILES_SUCCESS,
+    payload: data
+  }
+};
+
+export const requestProfilesFail = (error) => {
+  return {
+    type: types.GET_PROFILES_FAIL,
+    payload: error
+  }
+};
 
 
 // Delete account & profile

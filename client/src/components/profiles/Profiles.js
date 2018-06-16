@@ -1,32 +1,28 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import propTypes from 'prop-types';
 import Spinner from '../common/Spinner';
 import ProfileItem from './ProfileItem';
-// import {getProfiles} from '../../actions/profileActions';
-import {setProfilesSuccess} from '../../sagas/fetchAllProfiles';
+import {fetchedProfiles} from '../../actions/profileActions';
 
 class Profiles extends Component {
 
-  componentDidMount(){
+  componentDidMount() {
     console.log('from profiles did mount');
-    this.props.onGetProfiles();
+    this.props.onFetchProfiles();
   }
 
   render() {
-    console.log('Profiles page');
-    console.log('props', this.props);
-
-
-    const { profiles, loading } = this.props.profiles;
+    const {profiles, loading} = this.props.profile;
     let profileItems;
 
-    if(profiles === null || loading){
+    if (profiles === null || loading) {
       profileItems = <Spinner/>;
-    } else{
-      if(profiles.length > 0){
+    } else {
+      if (profiles.length > 0) {
         profileItems = profiles.map(profile => (
-            <ProfileItem key={profile._id} profile={profile} />
+          <ProfileItem key={profile._id} profile={profile}/>
         ));
       } else {
         profileItems = <h4>No profiles found...</h4>
@@ -35,34 +31,36 @@ class Profiles extends Component {
 
     return (
       <div className="profiles">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">
-            <h1 className="display-4 text-center">Developer Profiles</h1>
-            <p className="lead text-center">
-              Browse and connect with developers
-            </p>
-            {profileItems}
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <h1 className="display-4 text-center">Developer Profiles</h1>
+              <p className="lead text-center">
+                Browse and connect with developers
+              </p>
+              {profileItems}
+            </div>
           </div>
         </div>
-      </div>
       </div>
     )
   }
 }
 
 Profiles.propTypes = {
-  onGetProfiles: propTypes.func.isRequired,
-  profiles: propTypes.object.isRequired
+  onFetchProfiles: propTypes.func.isRequired,
+  profile: propTypes.object.isRequired
 };
 
 
 const mapStateToProps = state => ({
-  profiles: state.profile
+  profile: state.profile
 });
 
-const mapDispatchToProps = dispatch => ({
-  onGetProfiles: () => dispatch(setProfilesSuccess())
-});
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {onFetchProfiles: fetchedProfiles},
+    dispatch
+  );
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profiles);
