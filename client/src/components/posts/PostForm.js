@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import propTypes from 'prop-types';
 import {connect} from 'react-redux';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
-import {addPost} from '../../actions/postAction';
+import {addPost} from '../../actions/postActions';
 
 class PostForm extends Component {
   constructor(props) {

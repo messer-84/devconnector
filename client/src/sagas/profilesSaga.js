@@ -13,15 +13,12 @@ function getProfilesAsync() {
     .then(res => res.data);
 }
 
-
 export function* workerSagaProfiles() {
   console.log('from saga');
 
   try {
     yield put(requestProfiles());
-
     const profiles = yield call(getProfilesAsync);
-
     yield put(requestProfilesSuccess(profiles));
 
   }
