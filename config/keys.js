@@ -1,6 +1,6 @@
-//password - 123456
-//user - maxv
-module.exports = {
-  mongoURI: 'mongodb://maxv:123456@ds119820.mlab.com:19820/devconnector',
-  secretOrKey: 'secret'
-};
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = require('./keys_prod');
+} else {
+  module.exports = require('./keys_dev');
+}
