@@ -2,11 +2,14 @@ import axios from 'axios';
 
 import {
   GET_PROFILE,
-  GET_PROFILES,
   PROFILE_LOADING,
   CLEAR_CURRENT_PROFILE,
   GET_ERRORS,
-  SET_CURRENT_USER
+  SET_CURRENT_USER,
+  FETCHED_PROFILES,
+  GET_PROFILES_REQUEST,
+  GET_PROFILES_SUCCESS,
+  GET_PROFILES_FAIL
 } from "./types";
 import * as types from "./types";
 
@@ -124,26 +127,26 @@ export const deleteEducation = (id) => dispatch => {
 // Get all profiles
 export const fetchedProfiles = () => {
   return {
-    type: types.FETCHED_PROFILES
+    type: FETCHED_PROFILES
   }
 };
 
 export const requestProfiles = () => {
   return {
-    type: types.GET_PROFILES_REQUEST
+    type: GET_PROFILES_REQUEST
   }
 };
 
 export const requestProfilesSuccess = (data) => {
   return {
-    type: types.GET_PROFILES_SUCCESS,
+    type: GET_PROFILES_SUCCESS,
     payload: data
   }
 };
 
 export const requestProfilesFail = (error) => {
   return {
-    type: types.GET_PROFILES_FAIL,
+    type: GET_PROFILES_FAIL,
     payload: error
   }
 };

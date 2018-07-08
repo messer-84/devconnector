@@ -1,12 +1,11 @@
-import {takeEvery, takeLatest, fork} from 'redux-saga/effects';
-import * as types from '../actions/types';
+import {takeLatest, fork} from 'redux-saga/effects';
 
+import {FETCHED_PROFILES} from "../actions/types";
 import {workerSagaProfiles} from './profilesSaga';
 
 
 function* watchGetAllProfiles() {
-  yield takeLatest(types.FETCHED_PROFILES, workerSagaProfiles);
-
+  yield takeLatest(FETCHED_PROFILES, workerSagaProfiles);
 }
 
 

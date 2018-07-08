@@ -5,14 +5,12 @@ import createSagaMiddleware from 'redux-saga'
 
 import myRootSaga from './sagas/rootSaga'
 
-// создаем saga мидлвар
+// create saga middleware
 const sagaMiddleware = createSagaMiddleware();
-
-
-// монтируем его в Store
 
 const initialState = {};
 
+//mount saga-mid in store
 const middleware = [thunk, sagaMiddleware];
 
 const store = createStore(
@@ -25,7 +23,7 @@ const store = createStore(
 );
 
 
-// затем запускаем сагу
+// run root saga
 sagaMiddleware.run(myRootSaga);
 
 export default store;
