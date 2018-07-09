@@ -7,7 +7,6 @@ import ProfileItem from './ProfileItem';
 import {fetchedProfiles} from '../../actions/profileActions';
 
 class Profiles extends Component {
-
   componentDidMount() {
     console.log('from profiles did mount');
     this.props.onFetchProfiles();
