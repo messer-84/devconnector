@@ -4,7 +4,7 @@ import {
   requestProfiles,
   requestProfilesSuccess,
   requestProfilesFail
-} from '../actions/profileActions';
+} from '../actions/profilesActions';
 
 
 function getProfilesAsync() {
@@ -13,8 +13,8 @@ function getProfilesAsync() {
     .then(res => res.data);
 }
 
-export function* workerSagaProfiles() {
-  console.log('from saga');
+export function* workerProfilesSaga() {
+  console.log('workerProfilesSaga run');
 
   try {
     yield put(requestProfiles());

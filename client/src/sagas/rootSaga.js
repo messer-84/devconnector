@@ -1,16 +1,15 @@
-import {takeLatest, fork} from 'redux-saga/effects';
+import {takeLatest, all} from 'redux-saga/effects';
 
 import {FETCHED_PROFILES} from "../actions/types";
-import {workerSagaProfiles} from './profilesSaga';
+import {workerProfilesSaga} from './profilesSaga';
 
-
-function* watchGetAllProfiles() {
-  yield takeLatest(FETCHED_PROFILES, workerSagaProfiles);
-}
-
+//watch-function
+//watch action
 
 function* myRootSaga() {
-  yield fork(watchGetAllProfiles);
+  yield all([
+    takeLatest(FETCHED_PROFILES, workerProfilesSaga)
+  ]);
 }
 
 export default myRootSaga;

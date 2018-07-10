@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 import propTypes from 'prop-types';
 import Spinner from '../common/Spinner';
 import ProfileItem from './ProfileItem';
-import {fetchedProfiles} from '../../actions/profileActions';
+import {fetchedProfiles} from '../../actions/profilesActions';
 
 class Profiles extends Component {
 

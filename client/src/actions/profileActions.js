@@ -5,13 +5,9 @@ import {
   PROFILE_LOADING,
   CLEAR_CURRENT_PROFILE,
   GET_ERRORS,
-  SET_CURRENT_USER,
-  FETCHED_PROFILES,
-  GET_PROFILES_REQUEST,
-  GET_PROFILES_SUCCESS,
-  GET_PROFILES_FAIL
+  SET_CURRENT_USER
 } from "./types";
-import * as types from "./types";
+
 
 // Get current profile
 export const getCurrentProfile = () => dispatch => {
@@ -124,32 +120,6 @@ export const deleteEducation = (id) => dispatch => {
     );
 };
 
-// Get all profiles
-export const fetchedProfiles = () => {
-  return {
-    type: FETCHED_PROFILES
-  }
-};
-
-export const requestProfiles = () => {
-  return {
-    type: GET_PROFILES_REQUEST
-  }
-};
-
-export const requestProfilesSuccess = (data) => {
-  return {
-    type: GET_PROFILES_SUCCESS,
-    payload: data
-  }
-};
-
-export const requestProfilesFail = (error) => {
-  return {
-    type: GET_PROFILES_FAIL,
-    payload: error
-  }
-};
 
 
 // Delete account & profile
