@@ -11,7 +11,6 @@ import {
   GET_PROFILES_SUCCESS,
   GET_PROFILES_FAIL
 } from "./types";
-import * as types from "./types";
 
 // Get current profile
 export const getCurrentProfile = () => dispatch => {
