@@ -2,49 +2,51 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
 import propTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {getCurrentProfile, deleteAccount} from "../../actions/profileActions";
+import {requestProfile, deleteAccount} from "../../actions/profileActions";
 import Spinner from '../common/Spinner';
 import ProfileActions from './ProfileActions';
 import Experience from './Experience';
 import Education from './Education';
+import {bindActionCreators} from "redux";
 
 class Dashboard extends Component {
   componentDidMount() {
-    this.props.getCurrentProfile();
+    this.props.onRequestProfile();
   }
 
-  onDeleteClick(e) {
+  onDeleteClick = (e) => {
     this.props.deleteAccount();
-  }
+  };
 
   render() {
     const {user} = this.props.auth;
-    const {profile, loading} = this.props.profile;
-
+    const {profile, loading, profiles} = this.props.profile;
     let dashboardContent;
-
-    if (profile === null || loading) {
+    if (loading) {
       dashboardContent = <Spinner/>;
     } else {
       // Check if logged in user has profile data
-      if (Object.keys(profile).length > 0) {
-        dashboardContent = (
-          <div>
-            <p className="lead text-muted">Welcome <Link
-              to={`/profile/${profile.handle}`}>{user.name}</Link></p>
-            <ProfileActions/>
-            <Experience experience={profile.experience}/>
-            <Education education={profile.education}/>
-            <div style={{marginBottom: '60px'}}/>
-            <button
-              onClick={this.onDeleteClick.bind(this)}
-              className="btn btn-danger"
-            >
-              Delete My Account
-            </button>
-          </div>
-        )
-      } else {
+      if (profile) {
+        if (Object.keys(profile).length > 0) {
+          dashboardContent = (
+            <div>
+              <p className="lead text-muted">Welcome <Link
+                to={`/profile/${profile.handle}`}>{user.name}</Link></p>
+              <ProfileActions/>
+              <Experience experience={profile.experience}/>
+              <Education education={profile.education}/>
+              <div style={{marginBottom: '60px'}}/>
+              <button
+                onClick={this.onDeleteClick}
+                className="btn btn-danger"
+              >
+                Delete My Account
+              </button>
+            </div>
+          )
+        }
+      }
+      else {
         //User is logged in but has no profile
         dashboardContent = (
           <div>
@@ -57,7 +59,6 @@ class Dashboard extends Component {
         );
       }
     }
-
     return (
       <div className="dashboard">
         <div className="container">
@@ -74,7 +75,7 @@ class Dashboard extends Component {
 }
 
 Dashboard.propTypes = {
-  getCurrentProfile: propTypes.func.isRequired,
+  onRequestProfile: propTypes.func.isRequired,
   deleteAccount: propTypes.func.isRequired,
   auth: propTypes.object.isRequired,
   profile: propTypes.object.isRequired
@@ -85,4 +86,13 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, {getCurrentProfile, deleteAccount})(Dashboard);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      onRequestProfile: requestProfile,
+      deleteAccount
+    },
+    dispatch
+  );
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

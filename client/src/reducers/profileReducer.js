@@ -1,27 +1,58 @@
 import {
-  GET_PROFILE,
-  PROFILE_LOADING,
   CLEAR_CURRENT_PROFILE,
-  GET_PROFILES_SUCCESS, GET_PROFILES_REQUEST
+  GET_PROFILE_SUCCESS,
+  GET_PROFILE_PENDING,
+  GET_PROFILE_FAILURE,
+  GET_PROFILE_HANDLE_SUCCESS,
+  GET_PROFILE_HANDLE_PENDING,
+  GET_PROFILE_HANDLE_FAILURE,
+  GET_PROFILES_SUCCESS,
+  GET_PROFILES_PENDING,
+  GET_PROFILES_FAILURE
 } from "../actions/types";
 
 const initialState = {
   profile: null,
-  profiles: null,
   loading: false
 };
 
 export default function (state = initialState, action) {
-  console.log('in action', action.payload);
+  console.log('>>>>>>>>>>>>>--------------------------');
 
   switch (action.type) {
-    case PROFILE_LOADING:
+    case GET_PROFILE_PENDING || GET_PROFILE_HANDLE_PENDING:
       return {
         ...state,
         loading: true
       };
+    case GET_PROFILE_SUCCESS:
+      console.log('action-payload', action);
 
-    case GET_PROFILES_REQUEST:
+      return {
+        ...state,
+        profile: action.payload,
+        loading: false
+      };
+    case GET_PROFILE_HANDLE_SUCCESS:
+      return {
+        ...state,
+        profile: action.payload,
+        loading: false
+      };
+    case GET_PROFILE_FAILURE || GET_PROFILE_HANDLE_FAILURE:
+      return {
+        ...state,
+        payload: {},
+        error: action.error,
+        loading: false
+      };
+
+    case CLEAR_CURRENT_PROFILE:
+      return {
+        ...state,
+        profile: null
+      };
+    case GET_PROFILES_PENDING:
       return {
         ...state,
         loading: true
@@ -33,19 +64,11 @@ export default function (state = initialState, action) {
         profiles: action.payload,
         loading: false
       };
-
-    case GET_PROFILE:
+    case GET_PROFILES_FAILURE:
       return {
         ...state,
-        profile: action.payload,
+        error: action.error,
         loading: false
-      };
-    // case GET_PROFILES:
-
-    case CLEAR_CURRENT_PROFILE:
-      return {
-        ...state,
-        profile: null
       };
     default:
       return state;

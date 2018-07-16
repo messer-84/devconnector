@@ -1,14 +1,17 @@
 import {takeLatest, all} from 'redux-saga/effects';
 
-import {FETCHED_PROFILES} from "../actions/types";
+import {GET_PROFILES, GET_PROFILE, GET_PROFILE_HANDLE} from "../actions/types";
 import {workerProfilesSaga} from './profilesSaga';
+import {workerProfileSaga} from './profileSaga';
+import {workerProfileHandleSaga} from './profileHandleSaga';
 
-//watch-function
-//watch action
+
 
 function* myRootSaga() {
   yield all([
-    takeLatest(FETCHED_PROFILES, workerProfilesSaga)
+    takeLatest(GET_PROFILES, workerProfilesSaga),
+    takeLatest(GET_PROFILE, workerProfileSaga),
+    takeLatest(GET_PROFILE_HANDLE, workerProfileHandleSaga)
   ]);
 }
 

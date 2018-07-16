@@ -2,22 +2,25 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import propTypes from 'prop-types';
+
 import Spinner from '../common/Spinner';
 import ProfileItem from './ProfileItem';
-import {fetchedProfiles} from '../../actions/profilesActions';
+import {requestProfiles} from '../../actions/profilesActions';
 
 class Profiles extends Component {
 
   componentDidMount() {
-    console.log('from profiles did mount');
-    this.props.onFetchProfiles();
+    console.log('profiles from  did mount');
+    this.props.onRequestProfiles();
   }
 
   render() {
+
     const {profiles, loading} = this.props.profile;
+    console.log('props', profiles);
     let profileItems;
 
-    if (profiles === null || loading) {
+    if (!profiles || loading) {
       profileItems = <Spinner/>;
     } else {
       if (profiles.length > 0) {
@@ -48,7 +51,7 @@ class Profiles extends Component {
 }
 
 Profiles.propTypes = {
-  onFetchProfiles: propTypes.func.isRequired,
+  onRequestProfiles: propTypes.func.isRequired,
   profile: propTypes.object.isRequired
 };
 
@@ -59,7 +62,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
-    {onFetchProfiles: fetchedProfiles},
+    {onRequestProfiles: requestProfiles},
     dispatch
   );
 
