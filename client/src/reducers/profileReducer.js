@@ -3,9 +3,6 @@ import {
   GET_PROFILE_SUCCESS,
   GET_PROFILE_PENDING,
   GET_PROFILE_FAILURE,
-  GET_PROFILE_HANDLE_SUCCESS,
-  GET_PROFILE_HANDLE_PENDING,
-  GET_PROFILE_HANDLE_FAILURE,
   GET_PROFILES_SUCCESS,
   GET_PROFILES_PENDING,
   GET_PROFILES_FAILURE
@@ -17,29 +14,20 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-  console.log('>>>>>>>>>>>>>--------------------------');
 
   switch (action.type) {
-    case GET_PROFILE_PENDING || GET_PROFILE_HANDLE_PENDING:
+    case GET_PROFILE_PENDING:
       return {
         ...state,
         loading: true
       };
     case GET_PROFILE_SUCCESS:
-      console.log('action-payload', action);
-
       return {
         ...state,
         profile: action.payload,
         loading: false
       };
-    case GET_PROFILE_HANDLE_SUCCESS:
-      return {
-        ...state,
-        profile: action.payload,
-        loading: false
-      };
-    case GET_PROFILE_FAILURE || GET_PROFILE_HANDLE_FAILURE:
+    case GET_PROFILE_FAILURE:
       return {
         ...state,
         payload: {},

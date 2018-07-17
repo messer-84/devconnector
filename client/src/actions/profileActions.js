@@ -9,55 +9,17 @@ import {
 } from "./types";
 
 
-// Get current profile
-// export const getCurrentProfile = () => dispatch => {
-//   dispatch(setProfileLoading());
-//   axios.get('/api/profile')
-//     .then(res =>
-//       dispatch({
-//         type: GET_PROFILE,
-//         payload: res.data
-//       })
-//     )
-//     .catch(err =>
-//       dispatch({
-//         type: GET_PROFILE,
-//         payload: {}
-//       })
-//     );
-// };
-
 export const requestProfile = () => {
   return {
     type: GET_PROFILE,
   }
 };
 export const requestProfileHandle = (handle) => {
-  console.log('handle-init', handle);
-
   return {
     type: GET_PROFILE_HANDLE,
     payload: handle
   }
 };
-
-// Get profile by handle
-// export const getProfileByHandle = (handle) => dispatch => {
-//   dispatch(setProfileLoading());
-//   axios.get(`/api/profile/handle/${handle}`)
-//     .then(res =>
-//       dispatch({
-//         type: GET_PROFILE,
-//         payload: res.data
-//       })
-//     )
-//     .catch(err =>
-//       dispatch({
-//         type: GET_PROFILE,
-//         payload: null
-//       })
-//     );
-// };
 
 // Create ProfileItem
 export const createProfile = (profileData, history) => dispatch => {

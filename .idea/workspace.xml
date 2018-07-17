@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f22857e4-02a8-4bf5-b0fc-6a4f17b2d61f" name="Default" comment="" />
+    <list default="true" id="f22857e4-02a8-4bf5-b0fc-6a4f17b2d61f" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/actions/profileActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/profileActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/reducers/profileReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/reducers/profileReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/sagas/profileHandleSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/sagas/profileHandleSaga.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/sagas/profileSaga.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/sagas/profileSaga.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -13,37 +22,19 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5003195">
+    <splitter split-orientation="horizontal" split-proportion="0.49488592">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="Profiles.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/components/profiles/Profiles.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-493">
-                  <folding>
-                    <element signature="e#0#39#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
+              <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
           <file leaf-file-name="Profile.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/components/profile/Profile.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="118">
+                <state relative-caret-position="180">
                   <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="profileReducer.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/client/src/reducers/profileReducer.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="474">
-                  <caret line="42" column="14" lean-forward="true" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
-                  <folding>
-                    <element signature="e#0#290#0" expanded="true" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -51,8 +42,23 @@
           <file leaf-file-name="rootSaga.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/sagas/rootSaga.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="36">
-                  <caret line="7" selection-start-line="7" selection-end-line="7" />
+                <state>
+                  <caret column="7" selection-start-column="7" selection-end-column="7" />
+                  <folding>
+                    <element signature="e#0#51#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="profileHandleSaga.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/client/src/sagas/profileHandleSaga.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="378">
+                  <caret line="21" selection-start-line="21" selection-end-line="21" />
+                  <folding>
+                    <element signature="e#0#45#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -64,7 +70,7 @@
           <file leaf-file-name="types.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/actions/types.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="144">
+                <state relative-caret-position="342">
                   <caret line="19" selection-start-line="19" selection-end-line="19" />
                 </state>
               </provider>
@@ -73,10 +79,31 @@
           <file leaf-file-name="profileActions.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/client/src/actions/profileActions.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="199">
-                  <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+                <state relative-caret-position="78">
+                  <caret line="11" selection-start-line="11" selection-end-line="11" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="profileReducer.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/src/reducers/profileReducer.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="90">
+                  <caret line="5" selection-start-line="5" selection-end-line="5" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="profileSaga.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/src/sagas/profileSaga.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="516">
+                  <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+                  <folding>
+                    <element signature="e#0#45#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -140,17 +167,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/client/src/reducers/index.js" />
-        <option value="$PROJECT_DIR$/client/src/store.js" />
         <option value="$PROJECT_DIR$/client/src/components/profiles/Profiles.js" />
         <option value="$PROJECT_DIR$/client/src/components/add-credentials/AddExperience.js" />
         <option value="$PROJECT_DIR$/client/src/index.js" />
         <option value="$PROJECT_DIR$/client/src/actions/profilesActions.js" />
         <option value="$PROJECT_DIR$/client/src/sagas/profilesSaga.js" />
-        <option value="$PROJECT_DIR$/client/src/sagas/rootSaga.js" />
         <option value="$PROJECT_DIR$/client/src/actions/types.js" />
+        <option value="$PROJECT_DIR$/client/src/sagas/rootSaga.js" />
         <option value="$PROJECT_DIR$/client/src/actions/profileActions.js" />
+        <option value="$PROJECT_DIR$/client/src/reducers/profileReducer.js" />
+        <option value="$PROJECT_DIR$/client/src/sagas/profileHandleSaga.js" />
+        <option value="$PROJECT_DIR$/client/src/sagas/profileSaga.js" />
       </list>
     </option>
   </component>
@@ -165,10 +192,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="219" />
-    <option name="y" value="70" />
+    <option name="x" value="118" />
+    <option name="y" value="155" />
     <option name="width" value="1701" />
-    <option name="height" value="1011" />
+    <option name="height" value="947" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -293,6 +320,7 @@
       <workItem from="1529866319185" duration="7320000" />
       <workItem from="1531076471373" duration="1449000" />
       <workItem from="1531253019083" duration="2515000" />
+      <workItem from="1531850956116" duration="1420000" />
     </task>
     <task id="LOCAL-00001" summary="add passport jwt">
       <created>1526330761509</created>
@@ -448,46 +476,41 @@
       <option name="project" value="LOCAL" />
       <updated>1531782385483</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="end 73">
+      <created>1531851000152</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1531851000152</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188307000" />
+    <option name="totallyTimeSpent" value="189727000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="138" y="131" width="1865" height="1005" extended-state="0" />
+    <frame x="118" y="155" width="1701" height="947" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49824563" visible="true" weight="0.14152496" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49824563" visible="true" weight="0.15852924" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5081967" side_tool="true" weight="0.25561497" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49899194" weight="0.32848233" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32991013" />
       <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32991013" />
       <window_info id="Structure" order="1" sideWeight="0.5017544" side_tool="true" weight="0.27305827" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4918033" visible="true" weight="0.26553673" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4918033" visible="true" weight="0.14631197" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49824563" visible="true" weight="0.23146474" />
-      <window_info id="Structure" order="1" sideWeight="0.5017544" side_tool="true" weight="0.27305827" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32991013" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5081967" side_tool="true" weight="0.25561497" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49899194" weight="0.32848233" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4918033" visible="true" weight="0.2738496" />
-      <window_info id="Favorites" order="2" side_tool="true" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -499,14 +522,14 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32991013" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3292683" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49741468" visible="true" weight="0.18087319" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5025853" side_tool="true" weight="0.29818782" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32991013" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3292683" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -564,64 +587,16 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/src/components/add-credentials/AddEducation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/add-credentials/AddExperience.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-693">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/actions/profilesActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-84" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/sagas/profilesSaga.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/sagas/rootSaga.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/actions/profileActions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/actions/types.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
+        <state relative-caret-position="342">
           <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
@@ -638,12 +613,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/sagas/rootSaga.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-308" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/sagas/profileHandleSaga.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/sagas/profileSaga.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/reducers/profileReducer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="42" column="14" lean-forward="true" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/actions/profileActions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
           <folding>
-            <element signature="e#0#290#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -14,14 +14,11 @@ function getProfileData() {
 }
 
 export function* workerProfileSaga() {
-  console.log('workerProfileSaga run');
-
   try {
     yield put({
       type: GET_PROFILE_PENDING
     });
     const profile = yield call(getProfileData);
-    console.log('profile', profile);
 
     yield put({
       type: GET_PROFILE_SUCCESS,
@@ -31,7 +28,7 @@ export function* workerProfileSaga() {
   catch (error) {
     yield put({
       type: GET_PROFILE_FAILURE,
-      payload: {}
+      payload: null
     })
   }
 
