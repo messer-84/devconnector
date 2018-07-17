@@ -8,7 +8,6 @@ import ProfileItem from './ProfileItem';
 import {requestProfiles} from '../../actions/profilesActions';
 
 class Profiles extends Component {
-
   componentDidMount() {
     console.log('profiles from  did mount');
     this.props.onRequestProfiles();
