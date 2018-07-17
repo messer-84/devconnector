@@ -5,8 +5,6 @@ import {workerProfilesSaga} from './profilesSaga';
 import {workerProfileSaga} from './profileSaga';
 import {workerProfileHandleSaga} from './profileHandleSaga';
 
-
-
 function* myRootSaga() {
   yield all([
     takeLatest(GET_PROFILES, workerProfilesSaga),
