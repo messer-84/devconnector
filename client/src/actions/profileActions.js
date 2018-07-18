@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import {
   GET_PROFILE,
+  CREATE_PROFILE,
   PROFILE_LOADING,
   CLEAR_CURRENT_PROFILE,
   GET_ERRORS,
@@ -21,18 +22,28 @@ export const requestProfileHandle = (handle) => {
   }
 };
 
-// Create ProfileItem
-export const createProfile = (profileData, history) => dispatch => {
-  axios
-    .post('/api/profile', profileData)
-    .then(res => history.push('/dashboard'))
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
+export const requestCreateProfile = (profileData, history) => {
+  return {
+    type: CREATE_PROFILE,
+    payload: {
+      profileData,
+      history
+    }
+  }
 };
+
+// Create ProfileItem
+// export const createProfile = (profileData, history) => dispatch => {
+//   axios
+//     .post('/api/profile', profileData)
+//     .then(res => history.push('/dashboard'))
+//     .catch(err =>
+//       dispatch({
+//         type: GET_ERRORS,
+//         payload: err.response.data
+//       })
+//     );
+// };
 
 // Add experience
 export const addExperience = (expData, history) => dispatch => {

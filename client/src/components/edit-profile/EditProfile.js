@@ -6,7 +6,7 @@ import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import SelectListGroup from '../common/SelectListGroup';
 import InputGroup from '../common/InputGroup';
-import {createProfile, requestProfile} from '../../actions/profileActions';
+import {requestCreateProfile, requestProfile} from '../../actions/profileActions';
 import isEmpty from '../../validation/is-empty';
 
 
@@ -106,7 +106,7 @@ class CreateProfile extends Component {
       instagram: this.state.instagram,
     };
 
-    this.props.createProfile(profileData, this.props.history);
+    this.props.requestCreateProfile(profileData, this.props.history);
 
   }
 
@@ -309,6 +309,6 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, {
-  createProfile,
+  requestCreateProfile,
   requestProfile
 })(withRouter(CreateProfile));

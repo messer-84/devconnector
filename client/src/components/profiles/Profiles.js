@@ -9,16 +9,13 @@ import {requestProfiles} from '../../actions/profilesActions';
 
 class Profiles extends Component {
   componentDidMount() {
-    console.log('profiles from  did mount');
     this.props.onRequestProfiles();
   }
 
   render() {
 
     const {profiles, loading} = this.props.profile;
-    console.log('props', profiles);
     let profileItems;
-
     if (!profiles || loading) {
       profileItems = <Spinner/>;
     } else {
