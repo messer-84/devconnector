@@ -32,15 +32,15 @@ class AddEducation extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-
+    const {school, degree, fieldofstudy, from, to, current, description} = this.state;
     const eduData = {
-      school: this.state.school,
-      degree: this.state.degree,
-      fieldofstudy: this.state.fieldofstudy,
-      from: this.state.from,
-      to: this.state.to,
-      current: this.state.current,
-      description: this.state.description
+      school,
+      degree,
+      fieldofstudy,
+      from,
+      to,
+      current,
+      description
     };
 
     this.props.addEducation(eduData, this.props.history);

@@ -7,11 +7,11 @@ import {clearCurrentProfile} from '../../actions/profileActions';
 
 
 class Navbar extends Component {
-    onLogoutClick(e){
+    onLogoutClick = (e) =>{
         e.preventDefault();
         this.props.clearCurrentProfile();
         this.props.logoutUser();
-    }
+    };
 
 
     render() {
@@ -28,7 +28,7 @@ class Navbar extends Component {
                 <li className="nav-item">
                     <a
                         href="#"
-                        onClick={this.onLogoutClick.bind(this)}
+                        onClick={this.onLogoutClick}
                         className="nav-link">
                         <img
                             className="rounded-circle"

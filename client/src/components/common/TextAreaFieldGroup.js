@@ -2,14 +2,8 @@ import React from 'react';
 import classnames from 'classnames';
 import propTypes from 'prop-types';
 
-const TextAreaFieldGroup = ({
-                              name,
-                              placeholder,
-                              value,
-                              error,
-                              info,
-                              onChange,
-                            }) => {
+const TextAreaFieldGroup = (props) => {
+  const {name, placeholder, value, error, info, onChange} = props;
   return (
     <div className="form-group">
       <textarea

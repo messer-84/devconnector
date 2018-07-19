@@ -6,9 +6,9 @@ import { deleteEducation } from '../../actions/profileActions';
 
 
 class Education extends Component {
-    onDeleteClick(id){
+    onDeleteClick = id => () =>{
       this.props.deleteEducation(id);
-    }
+    };
 
     render() {
         const education = this.props.education.map(edu => (
@@ -22,7 +22,7 @@ class Education extends Component {
                 <td>
                     <button
                       className="btn btn-danger"
-                      onClick={this.onDeleteClick.bind(this, edu._id)}
+                      onClick={this.onDeleteClick(edu._id)}
                     >
                       Delete
                     </button>
@@ -38,7 +38,7 @@ class Education extends Component {
                         <th>School</th>
                         <th>Degree</th>
                         <th>Years</th>
-                        <th></th>
+                        <th> </th>
                     </tr>
                     </thead>
                     <tbody>

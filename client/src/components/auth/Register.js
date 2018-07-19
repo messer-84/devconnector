@@ -16,8 +16,6 @@ class Register extends Component {
             errors: {}
         };
 
-        this.onChange = this.onChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
     }
 
     componentDidMount(){
@@ -32,29 +30,29 @@ class Register extends Component {
         }
     }
 
-    onChange(e) {
+    onChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
-    }
+    };
 
-    onSubmit(e) {
+    onSubmit = (e) => {
         e.preventDefault();
+        const {name, email, password, password2} = this.state;
         const newUser = {
-            name: this.state.name,
-            email: this.state.email,
-            password: this.state.password,
-            password2: this.state.password2
+            name,
+            email,
+            password,
+            password2
         };
 
         this.props.registerUser(newUser, this.props.history)
 
-
-    }
+    };
 
     render() {
 
-        const {errors} = this.state;
+        const {errors, name, email, password, password2} = this.state;
 
         return (
             <div className="register">
@@ -67,7 +65,7 @@ class Register extends Component {
                                 <TextFieldGroup
                                     placeholder="Name"
                                     name="name"
-                                    value={this.state.name}
+                                    value={name}
                                     type="text"
                                     onChange={this.onChange}
                                     error = {errors.name}
@@ -75,7 +73,7 @@ class Register extends Component {
                                 <TextFieldGroup
                                     placeholder="Email Address"
                                     name="email"
-                                    value={this.state.email}
+                                    value={email}
                                     type="email"
                                     onChange={this.onChange}
                                     error = {errors.email}
@@ -84,7 +82,7 @@ class Register extends Component {
                                 <TextFieldGroup
                                     placeholder="Password"
                                     name="password"
-                                    value={this.state.password}
+                                    value={password}
                                     type="password"
                                     onChange={this.onChange}
                                     error = {errors.password}
@@ -92,7 +90,7 @@ class Register extends Component {
                                 <TextFieldGroup
                                     placeholder="Confirm Password"
                                     name="password2"
-                                    value={this.state.password2}
+                                    value={password2}
                                     type="password"
                                     onChange={this.onChange}
                                     error = {errors.password2}

@@ -10,8 +10,8 @@ import {requestCreateProfile} from '../../actions/profileActions';
 
 
 class CreateProfile extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       displaySocialInputs: false,
       handle: '',
@@ -29,9 +29,6 @@ class CreateProfile extends Component {
       instagram: '',
       errors: {}
     };
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-    this.addSocialNetwork = this.addSocialNetwork.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -40,43 +37,73 @@ class CreateProfile extends Component {
     }
   }
 
-  onSubmit(e) {
+  onSubmit = (e) => {
     e.preventDefault();
-
+    const {
+      twitter,
+      facebook,
+      linkedin,
+      youtube,
+      instagram,
+      handle,
+      status,
+      company,
+      website,
+      location,
+      skills,
+      githubusername,
+      bio
+    } = this.state;
     const profileData = {
-      handle: this.state.handle,
-      company: this.state.company,
-      website: this.state.website,
-      location: this.state.location,
-      status: this.state.status,
-      skills: this.state.skills,
-      githubusername: this.state.githubusername,
-      bio: this.state.bio,
-      twitter: this.state.twitter,
-      facebook: this.state.facebook,
-      linkedin: this.state.linkedin,
-      youtube: this.state.youtube,
-      instagram: this.state.instagram,
+      handle,
+      company,
+      website,
+      location,
+      status,
+      skills,
+      githubusername,
+      bio,
+      twitter,
+      facebook,
+      linkedin,
+      youtube,
+      instagram,
     };
 
     this.props.requestCreateProfile(profileData, this.props.history);
 
-  }
+  };
 
-  onChange(e) {
+  onChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
     })
   };
 
-  addSocialNetwork() {
+  addSocialNetwork = () => {
     this.setState(prevState => ({
       displaySocialInputs: !prevState.displaySocialInputs
     }));
-  }
+  };
 
   render() {
-    const {errors, displaySocialInputs} = this.state;
+    const {
+      errors,
+      displaySocialInputs,
+      twitter,
+      facebook,
+      linkedin,
+      youtube,
+      instagram,
+      handle,
+      status,
+      company,
+      website,
+      location,
+      skills,
+      githubusername,
+      bio
+    } = this.state;
 
     let socialInputs;
 
@@ -87,7 +114,7 @@ class CreateProfile extends Component {
             placeholder="Twitter Profile URL"
             name="twitter"
             icon="fab fa-twitter"
-            value={this.state.twitter}
+            value={twitter}
             onChange={this.onChange}
             error={errors.twitter}
           />
@@ -95,7 +122,7 @@ class CreateProfile extends Component {
             placeholder="Facebook Page URL"
             name="facebook"
             icon="fab fa-facebook"
-            value={this.state.facebook}
+            value={facebook}
             onChange={this.onChange}
             error={errors.facebook}
           />
@@ -103,7 +130,7 @@ class CreateProfile extends Component {
             placeholder="Linkedin Profile URL"
             name="linkedin"
             icon="fab fa-linkedin"
-            value={this.state.linkedin}
+            value={linkedin}
             onChange={this.onChange}
             error={errors.linkedin}
           />
@@ -111,7 +138,7 @@ class CreateProfile extends Component {
             placeholder="Youtube Channel URL"
             name="youtube"
             icon="fab fa-youtube"
-            value={this.state.youtube}
+            value={youtube}
             onChange={this.onChange}
             error={errors.youtube}
           />
@@ -119,7 +146,7 @@ class CreateProfile extends Component {
             placeholder="Instagram Page URL"
             name="instagram"
             icon="fab fa-instagram"
-            value={this.state.instagram}
+            value={instagram}
             onChange={this.onChange}
             error={errors.instagram}
           />
@@ -140,7 +167,6 @@ class CreateProfile extends Component {
       {label: 'Instructor or Teacher', value: 'Instructor or Teacher'},
       {label: 'Intern', value: 'Intern'},
       {label: 'Other', value: 'Other'},
-
     ];
 
     return (
@@ -157,7 +183,7 @@ class CreateProfile extends Component {
                 <TextFieldGroup
                   placeholder="* Profile Handle"
                   name="handle"
-                  value={this.state.handle}
+                  value={handle}
                   onChange={this.onChange}
                   error={errors.handle}
                   info="A unique handle for your profile URL. Your full name,
@@ -166,7 +192,7 @@ class CreateProfile extends Component {
                 <SelectListGroup
                   placeholder="Status"
                   name="status"
-                  value={this.state.status}
+                  value={status}
                   onChange={this.onChange}
                   error={errors.status}
                   options={options}
@@ -175,7 +201,7 @@ class CreateProfile extends Component {
                 <TextFieldGroup
                   placeholder="Company"
                   name="company"
-                  value={this.state.company}
+                  value={company}
                   onChange={this.onChange}
                   error={errors.company}
                   info="Could be your own company or one you work for"
@@ -183,7 +209,7 @@ class CreateProfile extends Component {
                 <TextFieldGroup
                   placeholder="Website"
                   name="website"
-                  value={this.state.website}
+                  value={website}
                   onChange={this.onChange}
                   error={errors.website}
                   info="Could be your own website or a company one"
@@ -191,7 +217,7 @@ class CreateProfile extends Component {
                 <TextFieldGroup
                   placeholder="Location"
                   name="location"
-                  value={this.state.location}
+                  value={location}
                   onChange={this.onChange}
                   error={errors.location}
                   info="City or city & state suggested (eg. Boston, MA)"
@@ -199,7 +225,7 @@ class CreateProfile extends Component {
                 <TextFieldGroup
                   placeholder="* Skills"
                   name="skills"
-                  value={this.state.skills}
+                  value={skills}
                   onChange={this.onChange}
                   error={errors.skills}
                   info="Please use comma separated values (eg.
@@ -208,7 +234,7 @@ class CreateProfile extends Component {
                 <TextFieldGroup
                   placeholder="Github Username"
                   name="githubusername"
-                  value={this.state.githubusername}
+                  value={githubusername}
                   onChange={this.onChange}
                   error={errors.githubusername}
                   info="If you want your latest repos and a Github link,
@@ -217,7 +243,7 @@ class CreateProfile extends Component {
                 <TextAreaFieldGroup
                   placeholder="Short Bio"
                   name="bio"
-                  value={this.state.bio}
+                  value={bio}
                   onChange={this.onChange}
                   error={errors.bio}
                   info="Tell us a little about yourself"

@@ -12,9 +12,6 @@ class Login extends Component {
             password: '',
             errors: {}
         };
-
-        this.onChange = this.onChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
     }
 
     componentDidMount(){
@@ -33,25 +30,22 @@ class Login extends Component {
         }
     }
 
-    onChange(e) {
+    onChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
-    }
+    };
 
-    onSubmit(e){
+    onSubmit = (e) => {
         e.preventDefault();
-        const userData ={
-            email: this.state.email,
-            password: this.state.password,
-        };
-
+        const {email, password} = this.state;
+        const userData ={email, password };
         this.props.loginUser(userData);
-    }
+    };
 
     render() {
 
-        const {errors} = this.state;
+        const {errors, email, password} = this.state;
 
         return (
             <div className="login">
@@ -64,7 +58,7 @@ class Login extends Component {
                                 <TextFieldGroup
                                     placeholder="Email Address"
                                     name="email"
-                                    value={this.state.email}
+                                    value={email}
                                     type="email"
                                     onChange={this.onChange}
                                     error = {errors.email}
@@ -72,7 +66,7 @@ class Login extends Component {
                                 <TextFieldGroup
                                     placeholder="Password"
                                     name="password"
-                                    value={this.state.password}
+                                    value={password}
                                     type="password"
                                     onChange={this.onChange}
                                     error = {errors.password}

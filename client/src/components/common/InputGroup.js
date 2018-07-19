@@ -2,20 +2,20 @@ import React from 'react';
 import classnames from 'classnames';
 import propTypes from 'prop-types';
 
-const InputGroup = ({
-                      name,
-                      placeholder,
-                      value,
-                      error,
-                      icon,
-                      type,
-                      onChange,
-                    }) => {
+const InputGroup = (props) => {
+  const {
+    name,
+    placeholder,
+    value,
+    error,
+    icon,
+    onChange,
+  } = props;
   return (
     <div className="input-group mb-3">
       <div className="input-group-prepend">
         <span className="input-group-text">
-          <i className={icon} />
+          <i className={icon}/>
         </span>
       </div>
       <input

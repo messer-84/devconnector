@@ -6,9 +6,9 @@ import { deleteExperience } from '../../actions/profileActions';
 
 
 class Experience extends Component {
-    onDeleteClick(id){
+    onDeleteClick = id => () =>{
       this.props.deleteExperience(id);
-    }
+    };
 
     render() {
         const experience = this.props.experience.map(exp => (
@@ -22,7 +22,7 @@ class Experience extends Component {
                 <td>
                     <button
                       className="btn btn-danger"
-                      onClick={this.onDeleteClick.bind(this, exp._id)}
+                      onClick={this.onDeleteClick(exp._id)}
                     >
                       Delete
                     </button>
@@ -38,7 +38,7 @@ class Experience extends Component {
                         <th>Company</th>
                         <th>Title</th>
                         <th>Years</th>
-                        <th></th>
+                        <th> </th>
                     </tr>
                     </thead>
                     <tbody>

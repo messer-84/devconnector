@@ -8,8 +8,8 @@ import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import {addExperience} from '../../actions/profileActions';
 
 class AddExperience extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       company: '',
       title: '',
@@ -34,14 +34,16 @@ class AddExperience extends Component {
   onSubmit = e => {
     e.preventDefault();
 
+    const {company, title, location, from, to, current, description} = this.state;
+
     const expData = {
-      company: this.state.company,
-      title: this.state.title,
-      location: this.state.location,
-      from: this.state.from,
-      to: this.state.to,
-      current: this.state.current,
-      description: this.state.description
+      company,
+      title,
+      location,
+      from,
+      to,
+      current,
+      description
     };
 
     this.props.addExperience(expData, this.props.history);

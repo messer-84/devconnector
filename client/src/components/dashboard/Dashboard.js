@@ -4,7 +4,7 @@ import propTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {requestProfile, deleteAccount} from "../../actions/profileActions";
 import Spinner from '../common/Spinner';
-import ProfileActions from './ProfileActions';
+import ProfileActivities from './ProfileActivities';
 import Experience from './Experience';
 import Education from './Education';
 import {bindActionCreators} from "redux";
@@ -14,13 +14,13 @@ class Dashboard extends Component {
     this.props.onRequestProfile();
   }
 
-  onDeleteClick = (e) => {
+  onDeleteClick = () => {
     this.props.deleteAccount();
   };
 
   render() {
     const {user} = this.props.auth;
-    const {profile, loading, profiles} = this.props.profile;
+    const {profile, loading} = this.props.profile;
     let dashboardContent;
     if (loading) {
       dashboardContent = <Spinner/>;
@@ -30,9 +30,10 @@ class Dashboard extends Component {
         if (Object.keys(profile).length > 0) {
           dashboardContent = (
             <div>
-              <p className="lead text-muted">Welcome <Link
-                to={`/profile/${profile.handle}`}>{user.name}</Link></p>
-              <ProfileActions/>
+              <p className="lead text-muted">
+                Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
+              </p>
+              <ProfileActivities/>
               <Experience experience={profile.experience}/>
               <Education education={profile.education}/>
               <div style={{marginBottom: '60px'}}/>
