@@ -14,10 +14,11 @@ const ProfileItem = props =>{
                 <div className="col-lg-6 col-md-4 col-8">
                     <h3>{profile.user.name}</h3>
                     <p>
-                        {profile.status} {isEmpty(profile.company) && <span>at {profile.company}</span>}
+                        {profile.status}
+                        {!isEmpty(profile.company) && <span> at {profile.company}</span>}
                     </p>
                     <p>
-                        {isEmpty(profile.location) && <span>{profile.location}</span>}
+                        {!isEmpty(profile.location) && <span>{profile.location}</span>}
                     </p>
                     <Link to={`/profile/${profile.handle}`}  className="btn btn-info">
                         View Profile

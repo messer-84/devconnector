@@ -12,14 +12,12 @@ class Posts extends Component {
   }
 
   render() {
-    const { posts, loading } = this.props.post;
-    let postContent;
+    const {posts, loading} = this.props.post;
 
-    if(posts === null || loading){
-      postContent = <Spinner/>
-    } else {
-      postContent = <PostFeed posts={posts} />
-    }
+    const postContent = posts === null || loading
+      ? <Spinner/>
+      : <PostFeed posts={posts}/>;
+
 
     return (
       <div className="feed">

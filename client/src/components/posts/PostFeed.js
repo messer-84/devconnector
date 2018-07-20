@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import PostItem from './PostItem';
 
 const PostFeed = props => {
-    const { posts } = props;
-    return posts.map(post => <PostItem key={post._id} post={post} />);
-
+    return props.posts.map(post => <PostItem key={post._id} post={post} />);
 };
 
 PostFeed.propTypes = {

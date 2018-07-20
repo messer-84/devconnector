@@ -20,21 +20,18 @@ class ProfileGithub extends Component {
       .then(res => res.json())
       .then(data => {
         if (this.refs.myRef) {
-          console.log('then', data);
           this.setState({repos: data})
         }
       })
       .catch(err => {
-        console.log('error-git', err);
         this.setState({error: err.message});
       });
   }
 
   render() {
-    const {repos, error} = this.state;
+    const {repos} = this.state;
     let reposItems;
     const reposLoader = <div>Repositories doesn't found or Github profile doesn't exist</div>;
-    console.log('error', error);
 
     reposItems = !repos.message ? repos.map(repo => (
       <div key={repo.id} className="card card-body mb-2">
