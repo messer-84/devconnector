@@ -2,7 +2,7 @@ import React from 'react';
 
 import getDisplayName from '../helpers/getDisplayName';
 
-const withUserForm = (addFunction) => Component => {
+const withUserForm = Component => {
   class WithUserForm extends React.Component {
     constructor(props) {
       super(props);
@@ -18,9 +18,7 @@ const withUserForm = (addFunction) => Component => {
 
     onSubmit = e => {
       e.preventDefault();
-      console.log('addFunc', addFunction);
-      console.log('this-history', this.props.history);
-
+      console.log('submit in hoc', props);
       addFunction(this.state, this.props.history);
 
     };
@@ -45,6 +43,7 @@ const withUserForm = (addFunction) => Component => {
           onChange={this.onChange}
           onCheck={this.onCheck}
           onSubmit={this.onSubmit}
+          addFunction={this.props.addFunction}
           data={this.state}
         />
       );
