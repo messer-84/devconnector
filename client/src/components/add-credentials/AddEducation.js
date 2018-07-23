@@ -5,7 +5,10 @@ import propTypes from 'prop-types';
 
 import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
+
 import {addEducation} from '../../actions/profileActions';
+
+
 
 class AddEducation extends Component {
   state = {
@@ -19,6 +22,8 @@ class AddEducation extends Component {
       errors: {},
       disabled: false
     };
+
+
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
