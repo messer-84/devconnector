@@ -10,9 +10,7 @@ import {requestCreateProfile} from '../../actions/profileActions';
 
 
 class CreateProfile extends Component {
-  constructor() {
-    super();
-    this.state = {
+  state = {
       displaySocialInputs: false,
       handle: '',
       company: '',
@@ -29,7 +27,6 @@ class CreateProfile extends Component {
       instagram: '',
       errors: {}
     };
-  }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {

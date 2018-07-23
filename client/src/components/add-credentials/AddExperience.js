@@ -8,24 +8,20 @@ import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import {addExperience} from '../../actions/profileActions';
 
 class AddExperience extends Component {
-  constructor() {
-    super();
-    this.state = {
-      company: '',
-      title: '',
-      location: '',
-      from: '',
-      to: '',
-      current: false,
-      description: '',
-      errors: {},
-      disabled: false
-    };
+  state = {
+    company: '',
+    title: '',
+    location: '',
+    from: '',
+    to: '',
+    current: false,
+    description: '',
+    errors: {},
+    disabled: false
+  };
 
-  }
-
-  componentWillReceiveProps(nextProps){
-    if(nextProps.errors){
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
       this.setState({errors: nextProps.errors});
     }
   }
@@ -50,13 +46,13 @@ class AddExperience extends Component {
 
   };
 
-  onChange = e =>{
+  onChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
   };
 
-  onCheck = () =>{
+  onCheck = () => {
     this.setState({
       disabled: !this.state.disabled,
       current: !this.state.current
@@ -165,6 +161,6 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps, { addExperience: addExperience })(
+export default connect(mapStateToProps, {addExperience: addExperience})(
   withRouter(AddExperience)
 );

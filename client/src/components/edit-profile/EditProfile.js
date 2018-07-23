@@ -11,9 +11,7 @@ import isEmpty from '../../validation/is-empty';
 
 
 class CreateProfile extends Component {
-  constructor() {
-    super();
-    this.state = {
+state = {
       displaySocialInputs: false,
       handle: '',
       company: '',
@@ -30,7 +28,7 @@ class CreateProfile extends Component {
       instagram: '',
       errors: {}
     };
-  }
+
 
   componentDidMount() {
     this.props.requestProfile();

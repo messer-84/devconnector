@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import Spinner from '../common/Spinner';
 import ProfileItem from './ProfileItem';
@@ -9,7 +8,7 @@ import {requestProfiles} from '../../actions/profilesActions';
 
 class Profiles extends Component {
   componentDidMount() {
-    this.props.onRequestProfiles();
+    this.props.requestProfiles();
   }
 
   render() {
@@ -47,19 +46,22 @@ class Profiles extends Component {
 }
 
 Profiles.propTypes = {
-  onRequestProfiles: propTypes.func.isRequired,
-  profile: propTypes.object.isRequired
+  onRequestProfiles: PropTypes.func.isRequired,
+  profile: PropTypes.shape({
+    profiles: PropTypes.array.isRequired,
+    loading: PropTypes.bool.isRequired
+  })
 };
 
 
 const mapStateToProps = state => ({
   profile: state.profile
 });
+//
+// const mapDispatchToProps = dispatch =>
+//   bindActionCreators(
+//     {onRequestProfiles: requestProfiles},
+//     dispatch
+//   );
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(
-    {onRequestProfiles: requestProfiles},
-    dispatch
-  );
-
-export default connect(mapStateToProps, mapDispatchToProps)(Profiles);
+export default connect(mapStateToProps, {requestProfiles})(Profiles);

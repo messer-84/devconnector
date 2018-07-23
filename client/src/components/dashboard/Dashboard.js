@@ -11,7 +11,7 @@ import {bindActionCreators} from "redux";
 
 class Dashboard extends Component {
   componentDidMount() {
-    this.props.onRequestProfile();
+    this.props.requestProfile();
   }
 
   onDeleteClick = () => {
@@ -90,7 +90,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      onRequestProfile: requestProfile,
+      requestProfile,
       deleteAccount
     },
     dispatch
