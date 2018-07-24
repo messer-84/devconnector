@@ -2,9 +2,6 @@ import React, {Component} from 'react';
 
 import getDisplayName from '../helpers/getDisplayName';
 import {withRouter} from "react-router-dom";
-import {connect} from "react-redux";
-import {compose} from 'redux';
-
 
 const Decorate = ComponentToDecorate => {
   class ComponentDecorated extends Component {
