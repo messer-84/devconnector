@@ -1,13 +1,18 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import getDisplayName from '../helpers/getDisplayName';
+import {withRouter} from "react-router-dom";
+import {connect} from "react-redux";
+import {compose} from 'redux';
 
-const withUserForm = Component => {
-  class WithUserForm extends React.Component {
+
+const Decorate = ComponentToDecorate => {
+  class ComponentDecorated extends Component {
     constructor(props) {
       super(props);
-
-      this.state = {...props.data};
+      this.state = {
+        errors: {}
+      };
     }
 
     componentWillReceiveProps(nextProps) {
@@ -18,9 +23,7 @@ const withUserForm = Component => {
 
     onSubmit = e => {
       e.preventDefault();
-      console.log('submit in hoc', props);
-      addFunction(this.state, this.props.history);
-
+      this.props.addFunction(this.state, this.props.history);
     };
 
     onChange = e => {
@@ -36,24 +39,26 @@ const withUserForm = Component => {
       });
     };
 
-    render(){
+    render() {
       return (
-        <Component
+        <ComponentToDecorate
           {...this.props}
+          data={this.state}
           onChange={this.onChange}
           onCheck={this.onCheck}
           onSubmit={this.onSubmit}
-          addFunction={this.props.addFunction}
-          data={this.state}
         />
       );
     }
 
   }
 
-  WithUserForm.displayName = `withForm(${getDisplayName(Component)}`;
+  ComponentDecorated.displayName = `withForm(${getDisplayName(Component)}`;
 
-  return WithUserForm;
+  return compose(
+    connect(null, null),
+    withRouter
+  )(ComponentDecorated);
 };
 
-export default withUserForm;
+export default Decorate;

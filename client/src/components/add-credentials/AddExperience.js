@@ -1,40 +1,23 @@
 import React from 'react';
 import {compose} from 'redux';
-import {bindActionCreators} from "redux";
-
-import {Link, withRouter} from 'react-router-dom';
-import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import withUserForm from '../../HOCS/withUserForm';
+import PropTypes from 'prop-types';
+
 import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
+import Decorate from '../../HOCS/decorate';
 import {addExperience as addExperienceAction} from '../../actions/profileActions';
 
-const initialState = {
-  company: 'comp',
-  title: 'title',
-  location: 'comp-loc',
-  from: '2018-07-01',
-  to: '2018-07-02',
-  current: false,
-  description: '',
-  errors: {},
-  disabled: false
-};
 
-function AddExperience(props) {
-  const {data, onSubmit, onCheck, onChange, addFunction} = props;
+const AddExperience = (props) => {
   const {
-    company,
-    title,
-    location,
-    from,
-    to,
-    current,
-    description,
-    errors,
-    disabled
-  } = data;
+    onSubmit,
+    onCheck,
+    onChange,
+    data
+  } = props;
+
   return (
     <div className="add-experience">
       <div className="container">
@@ -51,48 +34,41 @@ function AddExperience(props) {
               <TextFieldGroup
                 placeholder="* Company"
                 name="company"
-                value={company}
                 onChange={onChange}
-                error={errors.company}
+                error={data.errors.company || null}
               />
               <TextFieldGroup
                 placeholder="* Job Title"
                 name="title"
-                value={title}
                 onChange={onChange}
-                error={errors.title}
+                error= { data.errors.title || null }
               />
               <TextFieldGroup
                 placeholder="location"
                 name="location"
-                value={location}
                 onChange={onChange}
-                error={errors.location}
+                error={data.errors.location || null}
               />
               <h6>From Date</h6>
               <TextFieldGroup
                 name="from"
                 type="date"
-                value={from}
                 onChange={onChange}
-                error={errors.from}
+                error={data.errors.from || null}
               />
               <h6>To Date</h6>
               <TextFieldGroup
                 name="to"
                 type="date"
-                value={to}
                 onChange={onChange}
-                error={errors.to}
-                disabled={disabled ? 'disabled' : ''}
+                error={data.errors.to || null}
+                disabled={data.disabled ? 'disabled' : ''}
               />
               <div className="form-check mb-4 ml-3">
                 <input
                   type="checkbox"
                   className="form-check-input"
                   name="current"
-                  value={current}
-                  checked={current}
                   onChange={onCheck}
                   id="current"
                 />
@@ -103,9 +79,8 @@ function AddExperience(props) {
               <TextAreaFieldGroup
                 placeholder="Job Description"
                 name="description"
-                value={description}
                 onChange={onChange}
-                error={errors.description}
+                error={data.errors.description || null}
                 info="Tell us about the position"
               />
               <input
@@ -118,11 +93,10 @@ function AddExperience(props) {
       </div>
     </div>
   );
-
-}
+};
 
 AddExperience.propTypes = {
-  addExperienceAction: PropTypes.func.isRequired,
+  addFunction: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
@@ -130,11 +104,10 @@ AddExperience.propTypes = {
 
 const mapStateToProps = state => ({
   profile: state.profile,
-  errors: state.errors,
-  data: initialState,
-  addFunction: addExperienceAction
+  errors: state.errors
 });
 
-export default withUserForm(
-  connect(mapStateToProps, {addExperienceAction})(withRouter(AddExperience))
-);
+export  default compose(
+  connect(mapStateToProps, {addFunction: addExperienceAction}),
+  Decorate
+)(AddExperience);
