@@ -55,10 +55,7 @@ const Decorate = ComponentToDecorate => {
 
   ComponentDecorated.displayName = `withForm(${getDisplayName(Component)}`;
 
-  return compose(
-    connect(null, null),
-    withRouter
-  )(ComponentDecorated);
+  return withRouter(ComponentDecorated);
 };
 
 export default Decorate;
