@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import {loginUser} from '../../actions/authActions';
 import TextFieldGroup from '../common/TextFieldGroup';
 
@@ -10,8 +11,11 @@ class Login extends Component {
     password: '',
     errors: {}
   };
-
-
+  static propTypes = {
+    loginUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
+  };
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
       this.props.history.push('/dashboard');
@@ -80,16 +84,11 @@ class Login extends Component {
   }
 }
 
-Login.propTypes = {
-  loginUser: propTypes.func.isRequired,
-  auth: propTypes.object.isRequired,
-  errors: propTypes.object.isRequired
 
-};
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
   errors: state.errors
 });
 
-export default connect(mapStateToProps, {loginUser})(Login);
+export default withRouter(connect(mapStateToProps, {loginUser})(Login));

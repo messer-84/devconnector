@@ -2,12 +2,14 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
 import propTypes from 'prop-types';
 import {connect} from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import {bindActionCreators} from "redux";
+
 import {requestProfile, deleteAccount} from "../../actions/profileActions";
 import Spinner from '../common/Spinner';
 import ProfileActivities from './ProfileActivities';
 import Experience from './Experience';
 import Education from './Education';
-import {bindActionCreators} from "redux";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -96,4 +98,4 @@ const mapDispatchToProps = dispatch =>
     dispatch
   );
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Dashboard));

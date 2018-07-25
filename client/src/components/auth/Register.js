@@ -14,6 +14,12 @@ class Register extends Component {
     errors: {}
   };
 
+  static propTypes = {
+    registerUser: propTypes.func.isRequired,
+    auth: propTypes.object.isRequired,
+    errors: propTypes.object.isRequired
+  };
+
 
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
@@ -104,11 +110,7 @@ class Register extends Component {
   }
 }
 
-Register.propTypes = {
-  registerUser: propTypes.func.isRequired,
-  auth: propTypes.object.isRequired,
-  errors: propTypes.object.isRequired
-};
+
 
 
 const mapStateToProps = (state) => ({
