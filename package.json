@@ -8,7 +8,9 @@
     "start": "node server.js",
     "server": "nodemon --exec babel-node server.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "author": "Maksim Vorobyov",
   "license": "MIT",
@@ -25,7 +27,8 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "react-moment": "^0.7.0",
-    "validator": "^10.1.0"
+    "validator": "^10.1.0",
+    "snyk": "^1.258.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -39,5 +42,6 @@
     "babel-register": "^6.26.0",
     "nodemon": "^1.17.4",
     "react-addons-perf": "^15.4.2"
-  }
+  },
+  "snyk": true
 }
